@@ -1,0 +1,18 @@
+{
+  "host": {
+    "local": {
+      "domain": "http://localhost:"
+    },
+
+    "ubuntu": {
+      "public": "http://xxx.xx.xxx.xx:"
+    }
+  },
+
+  "port": {
+    "client": 3000,
+    "node": 8000,
+    "flask": 5000,
+    "db": 27017
+  }
+}
