@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ebiz-cap/ebiz-cap/issues"
   },
-  "homepage": "https://github.com/ebiz-cap/ebiz-cap#readme"
+  "homepage": "https://github.com/ebiz-cap/ebiz-cap#readme",
+  "dependencies": {
+    "expo": "^46.0.10",
+    "expo-cli": "^6.0.5"
+  }
 }
