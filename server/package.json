@@ -4,7 +4,8 @@
   "description": "for express server for 머리할래",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "horizD",
   "license": "ISC",
