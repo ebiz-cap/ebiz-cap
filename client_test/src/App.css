@@ -1,0 +1,22 @@
+/* 전역 스타일 정의 파일 */
+.App {
+}
+.header-conatiner {
+  /* max-width: fit-content; */
+}
+
+/* 1. Intro 관련 */
+/* 1.1 Intro - 레이아웃 */
+.core-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* 2. History 관련 */
+/* 2.1 History - 레이아웃 */
+
+.history-container {
+  /* width: 410px !important; */
+  height: 700px !important;
+}

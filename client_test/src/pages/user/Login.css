@@ -1,0 +1,43 @@
+.socialSignIn-btnBox {
+  margin-top: 10%;
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: center;
+}
+
+.social-btn {
+  width: 65%;
+  margin: 10px !important;
+  border-radius: 1em;
+  box-shadow: 0px 3px 3px lightgrey;
+}
+
+.kakao {
+  background-color: #f9e000 !important;
+}
+
+.google {
+  background-color: white !important;
+  color: black !important;
+}
+
+.signIn-btn {
+  background-color: orange !important;
+  border-color: orange !important;
+  margin-right: 10px !important;
+}
+.signUp-btn {
+  background-color: orange !important;
+  border-color: orange !important;
+}
+
+.log-container {
+  margin-bottom: 100px !important;
+}
+
+.findPw-btn {
+  background-color: rgb(255, 228, 179) !important;
+  color: white !important;
+  box-shadow: 3px 3px 3px;
+}

@@ -3,7 +3,6 @@ AWS.config.loadFromPath(
   "C:\\Users\\he125\\OneDrive\\바탕 화면\\Dev\\Git\\ebiz-cap\\server\\config\\awsConfig.json"
 );
 
-const { S3Client } = require("@aws-sdk/client-s3");
 const multerS3 = require("multer-s3-v2");
 const multer = require("multer");
 const path = require("path");
@@ -28,6 +27,9 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
+// router.get("/", async (req, res) => {
+//   console.log("good ");
+// });
 // 이미지 업로드 요청
 router.post("/", upload.single("file"), async (req, res) => {
   console.log(req.file.location);

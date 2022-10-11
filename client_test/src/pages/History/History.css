@@ -1,0 +1,97 @@
+.history-container {
+  margin-top: 100px !important;
+}
+/*  */
+.MuiToggleButtonGroup-root {
+  margin-left: 10px !important;
+}
+
+.MuiBox-root {
+}
+
+.MuiButtonBase-root {
+  border-radius: 1em !important;
+}
+
+.page-title {
+  margin-top: 40px !important;
+  margin-bottom: 13% !important;
+  text-align: center;
+  font-family: "Fredoka One", cursive;
+}
+
+.card-slider {
+  display: block;
+  align-items: center;
+}
+
+.react-multi-carousel-list {
+  margin: 10px !important;
+}
+
+.react-multi-carousel-track {
+  padding: 2rem;
+  padding-top: 0px !important;
+}
+
+.card-item {
+  /* margin-right: 10% !important; */
+  border-radius: 10% !important;
+  padding: 5% !important;
+  width: 240px !important;
+  height: 330px !important;
+}
+
+.history-container h2 {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.history-box {
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+/* GRID MODE */
+/* .grid-container {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
+  grid-template-rows: 1fr 1fr 1fr;
+} */
+
+.image-gallery {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  /* gap: 0px */
+}
+
+.image-gallery > li {
+  flex-basis: 100px;
+  list-style: none;
+}
+
+.grid-item {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100px !important;
+  border-radius: 1em;
+}
+
+/*  */
+.scale {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out; /* 부드러운 모션을 위해 추가*/
+}
+.scale:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}

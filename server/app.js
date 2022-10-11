@@ -2,13 +2,13 @@ const express = require("express");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const mysqlConf = require("./config/mysqlConfig.json");
-const cors = require("cors");
+const cors = require("cors")
 const PORT = require("./config/PORT.json");
 const URI = require("./config/URI.json");
 
 // 라우터Import
 const userRouter = require("./routes/user");
-const s3Router = require("./routes/s3Upload");
+const s3UploadRouter = require("./routes/s3Upload");
 
 //------------------------------
 // 0.
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 
 //  3. 라우팅
 app.use("/user", userRouter);
-app.use("/upload", s3Router);
+app.use("/upload", s3UploadRouter);
 
 //  4. 서버구동
 app.listen(PORT.node, (err) => {
