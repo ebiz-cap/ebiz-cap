@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-alice-carousel": "^2.6.4",
+    "swiper": "^8.4.3"
+  }
+}

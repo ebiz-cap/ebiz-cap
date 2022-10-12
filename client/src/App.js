@@ -1,11 +1,21 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ProfileManage from "./pages/user/ProfileManage";
 
+import { Route, Routes } from "react-router-dom";
+import { Desktop, Mobile, Default } from "./common/style/mediaQuery";
+import MobFooter from "common/components/mobile/MobFooter";
+import ProfileManage from "./pages/user/profileManage/ProfileManage";
+import UserSearch from "pages/user/userSearch/UserSearch";
+import Home from "pages/user/home/Home";
 function App() {
   return (
-    <div>
-      <ProfileManage />
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+      <UserSearch />
+      <Mobile>
+        <MobFooter />
+      </Mobile>
     </div>
   );
 }
