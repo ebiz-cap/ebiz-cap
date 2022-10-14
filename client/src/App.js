@@ -16,7 +16,10 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Routes>
+          <Route path="/" element={<></>} />
+          <Route path="/login" element={<></>} />
           <Route path="/user" element={<Home />}></Route>
+          <Route path="/user/search" element={<UserSearch />} />
         </Routes>
         <Mobile>
           <MobUserFooter />

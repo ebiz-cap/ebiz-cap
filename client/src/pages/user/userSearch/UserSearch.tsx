@@ -5,10 +5,7 @@ import styled from "styled-components";
 const UserSearch = (): JSX.Element => {
   return (
     <UserSearchContainer>
-      <div>
-        
-      </div>
-      {/* <TypeToggleBtn /> */}
+      <TypeToggleBtn />
       {/* <Switch /> */}
     </UserSearchContainer>
   );
