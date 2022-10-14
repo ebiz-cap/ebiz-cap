@@ -15,13 +15,22 @@ import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../store";
+import { update } from "../../../store/mobUserFooterSlice";
 
 import "./MobUserFooter.css";
-
 const MobFooter = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const [tabType, setTabType] = useState("home");
+  const dispatch = useDispatch();
+  const tabType = useSelector((state: RootState) => {
+    return state.mobUserFooter.value;
+  });
+
+  const setTabType = (tabStr: String) => {
+    dispatch(update(tabStr));
+  };
 
   return (
     <footer className="mob-footer-container">

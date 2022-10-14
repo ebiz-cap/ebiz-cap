@@ -28,9 +28,21 @@ import "swiper/css/autoplay";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Home = (): JSX.Element => {
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../store";
+import { update } from "../../../store/mobUserFooterSlice";
 
+const Home = (): JSX.Element => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  // const mobFooterTab = useSelector((state: RootState) => {
+  //   return state.mobUserFooter.value;
+  // });
+
+  const setMobFooterTab = (tabStr: String) => {
+    dispatch(update(tabStr));
+  };
   return (
     <div className="home-container">
       <TitleWrapper>
@@ -38,19 +50,39 @@ const Home = (): JSX.Element => {
       </TitleWrapper>
       <CategoryContainer>
         <CategoryWrapper1>
-          <IconBox onClick={() => navigate("/user/search")}>
+          <IconBox
+            onClick={() => {
+              setMobFooterTab("search");
+              navigate("/user/search");
+            }}
+          >
             <IconImgCore src={icon1} alt="cat1" />
             <IconText>머리하러</IconText>
           </IconBox>
-          <IconBox onClick={() => navigate("/user/reservation")}>
+          <IconBox
+            onClick={() => {
+              // setMobFooterTab("home");
+              navigate("/user/reservation");
+            }}
+          >
             <IconImg src={icon2} alt="cat1" />
             <IconText>예약</IconText>
           </IconBox>
-          <IconBox onClick={() => navigate("/user/history")}>
+          <IconBox
+            onClick={() => {
+              // setMobFooterTab("myPage");
+              navigate("/user/history");
+            }}
+          >
             <IconImg src={icon3} alt="cat1" />
             <IconText>내머리</IconText>
           </IconBox>
-          <IconBox onClick={() => navigate("/user/dm")}>
+          <IconBox
+            onClick={() => {
+              // setMobFooterTab("myPage");
+              navigate("/user/dm");
+            }}
+          >
             <IconImg src={icon4} alt="cat1" />
             <IconText>DM</IconText>
           </IconBox>
@@ -83,16 +115,31 @@ const Home = (): JSX.Element => {
           ></div>
         </div>
         <CategoryWrapper2>
-          <IconBox onClick={() => navigate("/user/trend")}>
+          <IconBox
+            onClick={() => {
+              setMobFooterTab("trend");
+              navigate("/user/trend");
+            }}
+          >
             <IconImg src={icon5} alt="cat1" />
             <IconText>트렌드</IconText>
           </IconBox>
 
-          <IconBox onClick={() => navigate("/user/curate")}>
+          <IconBox
+            onClick={() => {
+              setMobFooterTab("trend");
+              navigate("/user/curation");
+            }}
+          >
             <IconImg src={icon6} alt="cat1" />
-            <IconText>큐레이팅</IconText>
+            <IconText>큐레이션</IconText>
           </IconBox>
-          <IconBox onClick={() => navigate("/user/community")}>
+          <IconBox
+            onClick={() => {
+              setMobFooterTab("community");
+              navigate("/user/community");
+            }}
+          >
             <IconImgCommu src={icon7} alt="cat1" />
             <IconText>커뮤니티</IconText>
           </IconBox>
