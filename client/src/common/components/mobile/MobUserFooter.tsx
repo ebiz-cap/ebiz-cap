@@ -1,23 +1,11 @@
-import styled from "styled-components";
-import { Box } from "@mui/material";
-
 import HomeIcon from "@mui/icons-material/Home";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import ContentCutOutlinedIcon from "@mui/icons-material/ContentCutOutlined";
 
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-
-import TodayIcon from "@mui/icons-material/Today";
-import TodayOutlinedIcon from "@mui/icons-material/TodayOutlined";
-
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import PersonSearchOutlinedIcon from "@mui/icons-material/PersonSearchOutlined";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -25,14 +13,10 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 
-import ReplyIcon from "@mui/icons-material/Reply";
-import SearchIcon from "@mui/icons-material/Search";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import CollectionsIcon from "@mui/icons-material/Collections";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import "./MobFooter.css";
+import "./MobUserFooter.css";
 
 const MobFooter = (): JSX.Element => {
   const navigate = useNavigate();
@@ -49,7 +33,7 @@ const MobFooter = (): JSX.Element => {
           color: "grey",
         }}
         onClick={() => {
-          navigate("/");
+          navigate("/user");
           setTabType("home");
         }}
       >
@@ -61,6 +45,7 @@ const MobFooter = (): JSX.Element => {
 
         <div className="icon-text">홈</div>
       </div>
+
       <div
         style={{
           display: "flex",
@@ -69,8 +54,8 @@ const MobFooter = (): JSX.Element => {
           color: "grey",
         }}
         onClick={() => {
+          navigate("/user/search");
           setTabType("search");
-          navigate("/");
         }}
       >
         {tabType === "search" ? (
@@ -90,7 +75,7 @@ const MobFooter = (): JSX.Element => {
           color: "grey",
         }}
         onClick={() => {
-          navigate("/core");
+          navigate("/user/core");
           setTabType("trend");
         }}
       >
@@ -112,7 +97,7 @@ const MobFooter = (): JSX.Element => {
           fontSize: "",
         }}
         onClick={() => {
-          navigate("/history/list");
+          navigate("/user/community");
           setTabType("community");
         }}
       >
@@ -127,7 +112,7 @@ const MobFooter = (): JSX.Element => {
 
       <div
         onClick={() => {
-          navigate("about");
+          navigate("/user/myPage");
           setTabType("myPage");
         }}
         style={{
@@ -145,12 +130,6 @@ const MobFooter = (): JSX.Element => {
 
         <div className="icon-text">내정보</div>
       </div>
-
-      {/* <ul className="footer-ul">
-        <li className="footer-li">메뉴1</li>
-        <li className="footer-li">메뉴2</li>
-        <li className="footer-li">메뉴3</li>
-      </ul> */}
     </footer>
   );
 };

@@ -29,6 +29,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Home = (): JSX.Element => {
+
   const navigate = useNavigate();
   return (
     <div className="home-container">
