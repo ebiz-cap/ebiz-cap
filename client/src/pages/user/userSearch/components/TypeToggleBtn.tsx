@@ -7,21 +7,22 @@ const TypeToggleBtn = (): JSX.Element => {
   return (
     <ToggleContainer>
       <BtnWrapper className="toggle-container">
+        <TypeCircle className={isGps ? "listMode" : "gpsMode"} />
         <TypeText1
           className={isGps ? "offModeText" : "onModeText"}
           onClick={() => {
             setIsGps(false);
-            console.log("yes gps");
+            console.log("no gps");
           }}
         >
           스타일
         </TypeText1>
-        <TypeCircle className={isGps ? "listMode" : "gpsMode"} />
+
         <TypeText2
           className={isGps ? "onModeText" : "offModeText"}
           onClick={() => {
             setIsGps(true);
-            console.log("no gps");
+            console.log("yes gps");
           }}
         >
           내주변
@@ -34,14 +35,14 @@ const TypeToggleBtn = (): JSX.Element => {
 const TypeText1 = styled.div`
   position: absolute;
   padding-top: 4px;
-  margin-left: 6.5em;
+  margin-right: 6.5em;
   z-index: 1;
 `;
 
 const TypeText2 = styled.div`
   position: absolute;
   padding-top: 4px;
-  margin-right: 6.5em;
+  margin-left: 6.5em;
   z-index: 1;
 `;
 

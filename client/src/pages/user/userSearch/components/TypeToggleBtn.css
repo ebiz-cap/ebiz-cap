@@ -1,34 +1,34 @@
 .gpsMode {
   position: relative;
-  right: -50px;
+  right: 50px;
   animation-name: circleToLeft;
   animation-duration: 0.3s;
 }
 
 .listMode {
   position: relative;
-  right: 50px;
+  right: -50px;
   animation-name: circleToRight;
   animation-duration: 0.3s;
 }
 
 @keyframes circleToRight {
   from {
-    right: -50px;
+    right: 50px;
   }
 
   to {
-    right: 50px;
+    right: -50px;
   }
 }
 
 @keyframes circleToLeft {
   from {
-    right: 50px;
+    right: -50px;
   }
 
   to {
-    right: -50px;
+    right: 50px;
   }
 }
 
