@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import mobUserFooterSlice from "./mobUserFooterSlice";
+import mobUserSearchIsGpsSlice from "./mobUserSearchIsGps";
 
 const store = configureStore({
   reducer: {
     mobUserFooter: mobUserFooterSlice.reducer,
+    mobUserSearchIsGps: mobUserSearchIsGpsSlice.reducer,
   },
 });
 

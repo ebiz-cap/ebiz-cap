@@ -1,17 +1,29 @@
 import { useState } from "react";
 import styled from "styled-components";
+
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../../store";
+import { setIsGps } from "store/mobUserSearchIsGps";
 import "./TypeToggleBtn.css";
+
 const TypeToggleBtn = (): JSX.Element => {
-  const [isGps, setIsGps] = useState(false);
+  // 리덕스: isGps
+  const isGps = useSelector((state: RootState) => {
+    return state.mobUserSearchIsGps.value;
+  });
+  const dispatch = useDispatch();
+  const setIsGpsCall = (isGpsOrNot: boolean) => {
+    dispatch(setIsGps(isGpsOrNot));
+  };
 
   return (
-    <ToggleContainer>
-      <BtnWrapper className="toggle-container">
+    <ToggleContainer className="toggle-container">
+      <BtnWrapper>
         <TypeCircle className={isGps ? "listMode" : "gpsMode"} />
         <TypeText1
           className={isGps ? "offModeText" : "onModeText"}
           onClick={() => {
-            setIsGps(false);
+            setIsGpsCall(false);
             console.log("no gps");
           }}
         >
@@ -21,7 +33,7 @@ const TypeToggleBtn = (): JSX.Element => {
         <TypeText2
           className={isGps ? "onModeText" : "offModeText"}
           onClick={() => {
-            setIsGps(true);
+            setIsGpsCall(true);
             console.log("yes gps");
           }}
         >
@@ -47,9 +59,11 @@ const TypeText2 = styled.div`
 `;
 
 const TypeCircle = styled.div`
+  height: 80%;
+  margin-top: 3px;
+  width: 90px;
   background-color: #fab8ff;
   border-radius: 1.5em;
-  width: 100px;
   position: relative;
   z-index: 0;
 `;
@@ -58,18 +72,17 @@ const ToggleContainer = styled.div`
   display: flex;
 `;
 const BtnWrapper = styled.div`
-  position:relative;
+  position: relative;
   width: 200px;
   height: 30px;
   display: flex;
-  flex-direction: 
-  border-color: gray;
+  border-color: #adadad !important;
   border-style: solid;
   border-width: 1px;
   border-radius: 1.5em;
   margin: auto;
-  margin-top: 90%;
-  justify-content:space-evenly;
+  margin-top: 5%;
+  justify-content: space-evenly;
 `;
 
 export default TypeToggleBtn;

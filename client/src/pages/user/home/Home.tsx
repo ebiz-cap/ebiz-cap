@@ -17,11 +17,8 @@ import icon7 from "../../../env/imgsrc/pictoSet1/humanGurm.png";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { A11y, Autoplay } from "swiper";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 
 // Core Lib
@@ -155,6 +152,7 @@ const Home = (): JSX.Element => {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           style={{ height: "70%" }}
+          allowTouchMove
         >
           <SwiperSlide>
             <CustomImg src={img_image1} alt="img1" />
