@@ -1,11 +1,11 @@
-.listMode {
+.trendMode {
   position: relative;
   right: 50px;
   animation-name: circleToLeft;
   animation-duration: 0.3s;
 }
 
-.gpsMode {
+.curationMode {
   position: relative;
   right: -50px;
   animation-name: circleToRight;

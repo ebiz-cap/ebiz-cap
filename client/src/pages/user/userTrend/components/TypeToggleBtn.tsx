@@ -1,41 +1,43 @@
 import styled from "styled-components";
+
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
-import { setIsGps } from "store/mobUserSearchIsGpsSlice";
+import { setIsCuration } from "store/mobUserTrendIsCurationSlice";
+
 import "./TypeToggleBtn.css";
 
 const TypeToggleBtn = (): JSX.Element => {
-  // 리덕스: isGps
-  const isGps = useSelector((state: RootState) => {
-    return state.mobUserSearchIsGps.value;
+  // 리덕스: isCuration
+  const isCuration = useSelector((state: RootState) => {
+    return state.mobUserTrendIsCuration.value;
   });
   const dispatch = useDispatch();
-  const setIsGpsCall = (isGpsOrNot: boolean) => {
-    dispatch(setIsGps(isGpsOrNot));
+  const setIsCurationCall = (isCurationOrNot: boolean) => {
+    dispatch(setIsCuration(isCurationOrNot));
   };
 
   return (
     <ToggleContainer className="toggle-container">
       <BtnWrapper>
-        <TypeCircle className={isGps ? "gpsMode" : "listMode"} />
+        <TypeCircle className={isCuration ? "curationMode" : "trendMode"} />
         <TypeText1
-          className={isGps ? "offModeText" : "onModeText"}
+          className={isCuration ? "offModeText" : "onModeText"}
           onClick={() => {
-            setIsGpsCall(false);
-            console.log("no gps");
+            setIsCurationCall(false);
+            console.log("no Curation");
           }}
         >
-          스타일
+          트렌드
         </TypeText1>
 
         <TypeText2
-          className={isGps ? "onModeText" : "offModeText"}
+          className={isCuration ? "onModeText" : "offModeText"}
           onClick={() => {
-            setIsGpsCall(true);
-            console.log("yes gps");
+            setIsCurationCall(true);
+            console.log("yes Curation");
           }}
         >
-          내주변
+          큐레이션
         </TypeText2>
       </BtnWrapper>
     </ToggleContainer>
@@ -68,6 +70,11 @@ const TypeCircle = styled.div`
 
 const ToggleContainer = styled.div`
   display: flex;
+  position: fixed;
+  z-index: 5;
+  bottom: 7em;
+  margin: 0 auto;
+  width: 100%;
 `;
 const BtnWrapper = styled.div`
   background-color: white;

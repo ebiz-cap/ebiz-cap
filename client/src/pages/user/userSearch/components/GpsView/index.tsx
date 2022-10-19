@@ -1,10 +1,13 @@
 import styled from "styled-components";
 const GpsView = (): JSX.Element => {
-  return <GpsViewContainer>no</GpsViewContainer>;
+  return <GpsViewContainer className="gpsView-container">y</GpsViewContainer>;
 };
 
 const GpsViewContainer = styled.div`
   width: 100%;
+  height: 1000px;
+  background-color: blue;
+  margin-top: 11vh;
 `;
 
 export default GpsView;

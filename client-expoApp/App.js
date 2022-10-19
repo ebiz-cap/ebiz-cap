@@ -6,7 +6,10 @@ export default function App() {
     <WebView
       // style={styles.container}
       // originWhitelist={["*"]}
-      source={{ uri: "http://115.85.182.215/" }}
+      // source={{ uri: "http://115.85.182.215/" }}
+      source={{
+        uri: "https://63493e5e839390275a6867fd--muritest.netlify.app/",
+      }} //expo build:android
     />
   );
 }

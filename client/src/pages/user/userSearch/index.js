@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../store";
-import { setIsGps } from "store/mobUserSearchIsGps";
+import { useSelector } from "react-redux";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
 import "swiper/css";
 
 import TypeToggleBtn from "./components/TypeToggleBtn";
@@ -20,7 +17,6 @@ const UserSearch = () => {
   });
 
   const swiperRef = useRef(null);
-  const buttonRef = useRef(null);
 
   useEffect(() => {
     if (isGps === true) {
@@ -30,10 +26,6 @@ const UserSearch = () => {
     }
   }, [isGps]);
 
-  const nextSlide = () => {
-    console.log("click next", swiperRef.current);
-    swiperRef.current?.swiper.slideNext();
-  };
   const toSlide1 = (num) => {
     console.log("go to slide 1", num);
     swiperRef.current?.swiper.slideTo(0);
@@ -43,9 +35,16 @@ const UserSearch = () => {
     swiperRef.current?.swiper.slideTo(1);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [isGps]);
+
   return (
-    <UserSearchContainer>
-      <TypeToggleBtn />
+    <UserSearchContainer className="userSearch-container">
+      <SearchHeader>
+        <TypeToggleBtn />
+      </SearchHeader>
+
       <PageContainer className="page-container">
         <Swiper
           ref={swiperRef}
@@ -54,6 +53,7 @@ const UserSearch = () => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log("swiped", swiper)}
           style={{ height: "100%" }}
+          touchRatio={0}
         >
           <SwiperSlide>
             <SearchView />
@@ -76,4 +76,15 @@ const PageContainer = styled.div`
   width: 100%;
 `;
 
+const SearchHeader = styled.header`
+  position: fixed;
+  top: 0px;
+  height: 11vh;
+  z-index: 5;
+
+  width: 100%;
+  box-shadow: 0 6px 4px 4px grey;
+`;
+
+// header와 toggle 버튼 위치 및 height vh로 지정중
 export default UserSearch;

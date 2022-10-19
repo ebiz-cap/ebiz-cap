@@ -14,7 +14,7 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 import { update } from "../../../store/mobUserFooterSlice";
@@ -84,7 +84,7 @@ const MobFooter = (): JSX.Element => {
           color: "grey",
         }}
         onClick={() => {
-          navigate("/user/core");
+          navigate("/user/trend");
           setTabType("trend");
         }}
       >

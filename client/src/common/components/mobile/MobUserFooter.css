@@ -4,7 +4,7 @@ footer {
 
   width: 86%;
   height: 70px;
-
+  z-index: 5;
   box-shadow: 0 6px 4px 4px grey;
   background: white;
   color: white;
@@ -13,7 +13,6 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 90%;
   padding-bottom: 1%;
 }
 
