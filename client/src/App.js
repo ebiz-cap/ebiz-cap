@@ -22,6 +22,8 @@ function App() {
           <Route path="/user" element={<Home />}></Route>
           <Route path="/user/search" element={<UserSearch />} />
           <Route path="/user/trend" element={<UserTrend />} />
+          <Route path="/user/community" element={<div></div>} />
+          <Route path="/user/myPage" element={<ProfileManage />} />
         </Routes>
         <Mobile>
           <MobUserFooter />

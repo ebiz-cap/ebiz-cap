@@ -1,6 +1,6 @@
 const AWS = require("aws-sdk");
 AWS.config.loadFromPath(
-  "C:\\Users\\he125\\OneDrive\\바탕 화면\\Dev\\Git\\ebiz-cap\\server\\config\\awsConfig.json"
+  "C:\\Users\\he125\\OneDrive\\바탕 화면\\Dev\\Git\\ebiz-cap\\server_main\\config\\awsConfig.json"
 );
 
 const multerS3 = require("multer-s3-v2");

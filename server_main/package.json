@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "server_main",
   "version": "1.0.0",
   "description": "for express server for 머리할래",
   "main": "index.js",

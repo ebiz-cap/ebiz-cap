@@ -2,66 +2,54 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import Upload from "./components/UploadContainer";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "200px",
+  height: "300px",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  borderRadius: "10px",
+  boxShadow: 24,
+  p: 4,
+};
+
 const ProfileManage = (): JSX.Element => {
-  const [img, setImg] = useState("");
-
-  const formSubmit = (e: any) => {
-    const img = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", img);
-
-    axios
-      .post("http://localhost:8000/upload", formData)
-      .then((res) => {
-        setImg(res.data.location);
-        alert("성공");
-      })
-      .catch((err) => {
-        alert("실패");
-      });
-  };
+  //
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <button onClick={formSubmit}>yes</button>
-      <div className="img-preview">
-        <ImgPreview id="img-preview" src={img} />
-        <UploadImage
-          type="file"
-          accept="image/*"
-          id="img"
-          onChange={formSubmit}
-        ></UploadImage>
-      </div>
+      <ProfileImg onClick={handleOpen}></ProfileImg>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Upload />
+        </Box>
+      </Modal>
     </div>
   );
 };
 
-const ImgPreview = styled.img`
-  border-style: solid;
-  border-color: black;
-  width: 250px;
-  height: 250px;
-  margin: 30px;
-  position: absolute;
-  left: 41%;
-  right: 50%;
-`;
-
-const UploadImage = styled.input`
-  height: 30px;
-  position: absolute;
-  left: 50%;
-  right: 30%;
-  margin-top: 300px;
-`;
-
-const ViewImage = styled.button`
-  height: 30px;
-  position: absolute;
-  left: 50%;
-  right: 35%;
-  margin-top: 350px;
+const ProfileImg = styled.div`
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  border-radius: 50%;
 `;
 
 export default ProfileManage;

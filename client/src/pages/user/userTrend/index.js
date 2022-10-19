@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -13,8 +13,6 @@ import { red } from "@material-ui/core/colors";
 import UserTrendHeader from "./components/TrendView/UserTrendHeader";
 
 const UserTrend = () => {
-  const [isTrendMy, setIsTrendMy] = useState(true);
-
   //리덕스: isCuration
   const isCuration = useSelector((state) => {
     return state.mobUserTrendIsCuration.value;
@@ -40,27 +38,6 @@ const UserTrend = () => {
       toSlide1();
     }
   }, [isCuration]);
-
-  //   scroll 'y'
-  const scrollToMy = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  const scrollToUsers = () => {
-    window.scrollTo({
-      top: 1000,
-      behavior: "smooth",
-    });
-  };
-  useEffect(() => {
-    if (isTrendMy === true) {
-      scrollToMy();
-    } else if (isTrendMy === false) {
-      scrollToUsers();
-    }
-  }, [isTrendMy]);
 
   return (
     <UserTrendContainer className="userTrend-container">

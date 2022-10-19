@@ -7,7 +7,7 @@ import "swiper/css";
 import { RootState } from "store";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserTrendIsMy } from "store/UserTrendIsMy";
-
+import "./UserTrendHeader.css";
 const UserTrendHeader = (): JSX.Element => {
   // redux
   const isTrendMy = useSelector((state: RootState) => {
@@ -41,12 +41,15 @@ const UserTrendHeader = (): JSX.Element => {
   return (
     <UserTrendHead>
       <div
+        className={
+          isTrendMy ? "header-bottomLine-left" : "header-bottomLine-right"
+        }
         style={{
           position: "fixed",
-          backgroundColor: "red",
+          backgroundColor: "black",
           top: "60px",
           height: "2px",
-          width: "30%",
+          width: "35%",
         }}
       />
       <div

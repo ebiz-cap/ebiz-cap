@@ -1,0 +1,29 @@
+.header-bottomLine-right {
+  left: 55%;
+  animation-name: lineToRight;
+  animation-duration: 0.3s;
+}
+
+.header-bottomLine-left {
+  left: 10%;
+  animation-name: lineToLeft;
+  animation-duration: 0.3s;
+}
+
+@keyframes lineToRight {
+  from {
+    left: 10%;
+  }
+  to {
+    left: 55%;
+  }
+}
+
+@keyframes lineToLeft {
+  from {
+    left: 55%;
+  }
+  to {
+    left: 10%;
+  }
+}
