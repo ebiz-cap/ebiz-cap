@@ -28,16 +28,18 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 import { update } from "../../../store/mobUserFooterSlice";
+import { setIsCuration } from "store/mobUserTrendIsCurationSlice";
 
 const Home = (): JSX.Element => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  // const mobFooterTab = useSelector((state: RootState) => {
-  //   return state.mobUserFooter.value;
-  // });
 
-  const setMobFooterTab = (tabStr: String) => {
+  const setIsCurationCall = (isCur: boolean) => {
+    dispatch(setIsCuration(isCur));
+  };
+
+  const setMobFooterTabCall = (tabStr: String) => {
     dispatch(update(tabStr));
   };
   return (
@@ -49,7 +51,7 @@ const Home = (): JSX.Element => {
         <CategoryWrapper1>
           <IconBox
             onClick={() => {
-              setMobFooterTab("search");
+              setMobFooterTabCall("search");
               navigate("/user/search");
             }}
           >
@@ -58,7 +60,7 @@ const Home = (): JSX.Element => {
           </IconBox>
           <IconBox
             onClick={() => {
-              // setMobFooterTab("home");
+              // setMobFooterTabCall("home");
               navigate("/user/reservation");
             }}
           >
@@ -67,7 +69,7 @@ const Home = (): JSX.Element => {
           </IconBox>
           <IconBox
             onClick={() => {
-              // setMobFooterTab("myPage");
+              // setMobFooterTabCall("myPage");
               navigate("/user/history");
             }}
           >
@@ -76,7 +78,7 @@ const Home = (): JSX.Element => {
           </IconBox>
           <IconBox
             onClick={() => {
-              // setMobFooterTab("myPage");
+              // setMobFooterTabCall("myPage");
               navigate("/user/dm");
             }}
           >
@@ -114,7 +116,7 @@ const Home = (): JSX.Element => {
         <CategoryWrapper2>
           <IconBox
             onClick={() => {
-              setMobFooterTab("trend");
+              setMobFooterTabCall("trend");
               navigate("/user/trend");
             }}
           >
@@ -124,8 +126,9 @@ const Home = (): JSX.Element => {
 
           <IconBox
             onClick={() => {
-              setMobFooterTab("trend");
-              navigate("/user/curation");
+              setIsCurationCall(true);
+              setMobFooterTabCall("trend");
+              navigate("/user/trend");
             }}
           >
             <IconImg src={icon6} alt="cat1" />
@@ -133,7 +136,7 @@ const Home = (): JSX.Element => {
           </IconBox>
           <IconBox
             onClick={() => {
-              setMobFooterTab("community");
+              setMobFooterTabCall("community");
               navigate("/user/community");
             }}
           >

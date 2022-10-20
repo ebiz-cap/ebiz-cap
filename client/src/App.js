@@ -5,7 +5,7 @@ import store from "./store";
 //
 import { Desktop, Mobile, Default } from "./common/style/mediaQuery";
 import MobUserFooter from "common/components/mobile/MobUserFooter";
-import ProfileManage from "./pages/user/profileManage/ProfileManage";
+import MyPage from "./pages/user/myPage";
 import UserSearch from "pages/user/userSearch";
 import UserTrend from "pages/user/userTrend";
 import Home from "pages/user/home/Home";
@@ -23,7 +23,7 @@ function App() {
           <Route path="/user/search" element={<UserSearch />} />
           <Route path="/user/trend" element={<UserTrend />} />
           <Route path="/user/community" element={<div></div>} />
-          <Route path="/user/myPage" element={<ProfileManage />} />
+          <Route path="/user/myPage" element={<MyPage />} />
         </Routes>
         <Mobile>
           <MobUserFooter />

@@ -9,6 +9,9 @@ import TopBtnContainer from "./components/TopBtnContainer";
 
 import test_profileImg from "../../../env/imgsrc/test_profileImg.jpg";
 import BottomBtnContainer from "./components/BottomBtnContainer";
+
+import BottomContents from "./components/BottomContents";
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -55,6 +58,7 @@ const ProfileManage = (): JSX.Element => {
       <MiddleEmpty className="middle-empty" />
       <BottomContainer>
         <BottomBtnContainer />
+        <BottomContents />
       </BottomContainer>
     </div>
   );
