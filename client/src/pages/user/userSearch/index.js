@@ -77,6 +77,7 @@ const PageContainer = styled.div`
 `;
 
 const SearchHeader = styled.header`
+  margin-top: 5px;
   position: fixed;
   top: 0px;
   height: 11vh;
