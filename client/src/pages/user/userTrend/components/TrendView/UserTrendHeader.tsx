@@ -49,7 +49,8 @@ const UserTrendHeader = (): JSX.Element => {
           backgroundColor: "black",
           top: "60px",
           height: "2px",
-          width: "35%",
+          width: "25%",
+          marginTop: "8px",
         }}
       />
       <div
@@ -100,6 +101,7 @@ const UserTrendHeader = (): JSX.Element => {
 export default UserTrendHeader;
 
 const UserTrendHead = styled.div`
+  margin-top: 10px;
   position: fixed !important;
   top: 0px !important;
   z-index: 5;
