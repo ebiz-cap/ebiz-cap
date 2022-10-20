@@ -9,7 +9,6 @@ import "swiper/css";
 import TypeToggleBtn from "./components/TypeToggleBtn";
 import CurationView from "./components/CurationView";
 import TrendView from "./components/TrendView";
-import { red } from "@material-ui/core/colors";
 import UserTrendHeader from "./components/TrendView/UserTrendHeader";
 
 const UserTrend = () => {
