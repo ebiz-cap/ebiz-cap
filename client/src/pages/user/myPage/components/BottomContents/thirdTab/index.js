@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Carousel, CARDS } from "../components/HistoryCard";
+import { Card, Carousel, CARDS } from "../historyTab/HistoryCard";
 const ThirdTab = () => {
   return (
     <ThirdTabContainer>
