@@ -6,6 +6,7 @@ const HistoryTab = () => {
       <Carousel>
         {[...new Array(CARDS)].map((_, i) => (
           <Card
+            key={i}
             BLUEey={i}
             title={"Card " + (i + 1)}
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
