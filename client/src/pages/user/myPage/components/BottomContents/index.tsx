@@ -1,4 +1,4 @@
-import HistoryTab from "./historyTab";
+// import HistoryTab from "./historyTab";
 import DesignerTab from "./designerTab";
 import ThirdTab from "./thirdTab";
 
@@ -13,7 +13,8 @@ const BottomContents = (): JSX.Element => {
   });
 
   if (userMypageTab === 1) {
-    return <HistoryTab />;
+    // return <HistoryTab />;
+    return <div></div>;
   } else if (userMypageTab === 2) {
     return <DesignerTab />;
   } else {
