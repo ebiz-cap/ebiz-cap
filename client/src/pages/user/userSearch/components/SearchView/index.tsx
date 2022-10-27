@@ -1,9 +1,7 @@
 import styled from "styled-components";
 const SearchView = (): JSX.Element => {
   return (
-    <SearchViewContainer className="searchView-container">
-      n
-    </SearchViewContainer>
+    <SearchViewContainer className="searchView-container"></SearchViewContainer>
   );
 };
 

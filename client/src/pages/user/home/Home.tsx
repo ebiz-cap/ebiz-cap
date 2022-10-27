@@ -213,7 +213,6 @@ const IconBox = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  font-weight: bold;
   align-items: center;
 `;
 const IconImg = styled.img`

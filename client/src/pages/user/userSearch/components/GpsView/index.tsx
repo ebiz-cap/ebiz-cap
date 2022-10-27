@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import Kakaomap from "./Kakaomap";
 const GpsView = (): JSX.Element => {
-  return <GpsViewContainer className="gpsView-container">y</GpsViewContainer>;
+  return (
+    <GpsViewContainer className="gpsView-container">
+      <Kakaomap />
+    </GpsViewContainer>
+  );
 };
 
 const GpsViewContainer = styled.div`
