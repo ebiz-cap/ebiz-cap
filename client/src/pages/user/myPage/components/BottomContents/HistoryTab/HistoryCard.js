@@ -4,17 +4,17 @@ import styled from "styled-components";
 
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
-const CARDS = 10;
+export const CARDS = 10;
 const MAX_VISIBILITY = 3;
 
-const Card = ({ title, content }) => (
+export const Card = ({ title, content }) => (
   <StyledCard className="card">
     <h2>{title}</h2>
     <p>{content}</p>
   </StyledCard>
 );
 
-const Carousel = ({ children }) => {
+export const Carousel = ({ children }) => {
   const [active, setActive] = useState(2);
   const count = React.Children.count(children);
 
@@ -53,8 +53,6 @@ const Carousel = ({ children }) => {
     </StyledCarousel>
   );
 };
-
-export { Card, Carousel, CARDS };
 
 //
 const COLOR_GRAY = "#9CA3AF";
