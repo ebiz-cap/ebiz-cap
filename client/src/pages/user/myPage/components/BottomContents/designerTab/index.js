@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Carousel, CARDS } from "../historyTab/HistoryCard";
+import { Card, Carousel, CARDS } from "../HistoryCard";
 const DesignerTab = () => {
   return (
     <DesignerTabContainer>
