@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 //
-import Splash from "./Splash";
+import Splash from "./splash/Splash";
 
 const Sign = (): JSX.Element => {
   const [isSplash, setIsSplash] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setIsSplash(false);
-    }, 3000);
+    }, 2280);
   }, []);
   return (
     <SignBody>
@@ -20,6 +20,7 @@ const Sign = (): JSX.Element => {
 };
 
 const SignBody = styled.div`
+  width: 150vw;
   height: 100vh;
 `;
 export default Sign;
