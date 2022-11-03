@@ -13,6 +13,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -37,6 +38,8 @@ const MobFooter = (): JSX.Element => {
   const isLoggedNDesigner = useSelector((state: RootState) => {
     return state.isLoggedNDesigner.value;
   });
+
+  //
 
   //
   const UserFooterContents = (): JSX.Element => {
@@ -125,7 +128,11 @@ const MobFooter = (): JSX.Element => {
   };
 
   return (
-    <footer className="mob-footer-container">
+    <MobFooterContainer
+      className={
+        isLoggedNDesigner.isLoggedIn ? "active-footer" : "inactive-footer"
+      }
+    >
       {isLoggedNDesigner.isLoggedIn ? (
         isLoggedNDesigner.isDesigner ? (
           <DesignerFooterContents />
@@ -135,12 +142,16 @@ const MobFooter = (): JSX.Element => {
       ) : (
         <></>
       )}
-    </footer>
+    </MobFooterContainer>
   );
 };
 
 export default MobFooter;
 
+const MobFooterContainer = styled.footer`
+  display: ${(props) =>
+    props.className === "active-footer" ? "inline-block" : "none"};
+`;
 const IconBox = styled.div`
   display: flex;
   flex-direction: column;

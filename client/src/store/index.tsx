@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import isLoggedNDesignerSlice from "./common/isDesignerSlice";
+import isLoggedNDesignerSlice from "./common/isLoggedNDesignerSlice";
 
 import mobUserFooterSlice from "./user/mobUserFooterSlice";
 import mobUserSearchIsGpsSlice from "./user/mobUserSearchIsGpsSlice";
