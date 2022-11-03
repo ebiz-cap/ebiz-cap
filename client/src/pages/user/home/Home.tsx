@@ -27,8 +27,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
-import { update } from "../../../store/mobUserFooterSlice";
-import { setIsCuration } from "store/mobUserTrendIsCurationSlice";
+import { update } from "../../../store/user/mobUserFooterSlice";
+import { setIsCuration } from "store/user/mobUserTrendIsCurationSlice";
 
 const Home = (): JSX.Element => {
   const navigate = useNavigate();

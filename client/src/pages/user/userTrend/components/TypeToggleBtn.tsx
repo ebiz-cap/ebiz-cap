@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
-import { setIsCuration } from "store/mobUserTrendIsCurationSlice";
+import { setIsCuration } from "store/user/mobUserTrendIsCurationSlice";
 
 import "./TypeToggleBtn.css";
 

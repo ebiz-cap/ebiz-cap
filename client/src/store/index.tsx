@@ -1,17 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mobUserFooterSlice from "./mobUserFooterSlice";
-import mobUserSearchIsGpsSlice from "./mobUserSearchIsGpsSlice";
-import mobUserTrendIsCurationSlice from "./mobUserTrendIsCurationSlice";
-import UserTrendIsMySlice from "./UserTrendIsMy";
-import UserMypageTabSlice from "./UserMypageTabSlice";
+
+import isLoggedNDesignerSlice from "./common/isDesignerSlice";
+
+import mobUserFooterSlice from "./user/mobUserFooterSlice";
+import mobUserSearchIsGpsSlice from "./user/mobUserSearchIsGpsSlice";
+import mobUserTrendIsCurationSlice from "./user/mobUserTrendIsCurationSlice";
+import UserTrendIsMySlice from "./user/UserTrendIsMy";
+import UserMypageTabSlice from "./user/UserMypageTabSlice";
 
 const store = configureStore({
   reducer: {
+    // common
+    isLoggedNDesigner: isLoggedNDesignerSlice.reducer,
+    // user
     mobUserFooter: mobUserFooterSlice.reducer,
     mobUserSearchIsGps: mobUserSearchIsGpsSlice.reducer,
     mobUserTrendIsCuration: mobUserTrendIsCurationSlice.reducer,
     userTrendIsMy: UserTrendIsMySlice.reducer,
     userMypageTab: UserMypageTabSlice.reducer,
+
+    // designer
   },
 });
 

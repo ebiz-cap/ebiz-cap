@@ -9,6 +9,7 @@ import MyPage from "./pages/user/myPage";
 import UserSearch from "pages/user/userSearch";
 import UserTrend from "pages/user/userTrend";
 import Home from "pages/user/home/Home";
+import Sign from "pages/common/sign";
 
 import "./App.css";
 
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Routes>
-          <Route path="/" element={<></>} />
+          <Route path="/" element={<Sign />} />
           <Route path="/login" element={<></>} />
           <Route path="/user" element={<Home />}></Route>
           <Route path="/user/search" element={<UserSearch />} />

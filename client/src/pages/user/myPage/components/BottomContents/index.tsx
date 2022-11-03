@@ -5,7 +5,7 @@ import ThirdTab from "./thirdTab";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../../store";
-import { setUserMypageTab } from "store/UserMypageTabSlice";
+import { setUserMypageTab } from "store/user/UserMypageTabSlice";
 
 const BottomContents = (): JSX.Element => {
   const userMypageTab = useSelector((state: RootState) => {

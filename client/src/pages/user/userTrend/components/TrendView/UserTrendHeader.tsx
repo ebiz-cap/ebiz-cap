@@ -6,7 +6,7 @@ import "swiper/css";
 
 import { RootState } from "store";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserTrendIsMy } from "store/UserTrendIsMy";
+import { setUserTrendIsMy } from "store/user/UserTrendIsMy";
 import "./UserTrendHeader.css";
 const UserTrendHeader = (): JSX.Element => {
   // redux

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
-import { setIsGps } from "store/mobUserSearchIsGpsSlice";
+import { setIsGps } from "store/user/mobUserSearchIsGpsSlice";
 import "./TypeToggleBtn.css";
 
 const TypeToggleBtn = (): JSX.Element => {

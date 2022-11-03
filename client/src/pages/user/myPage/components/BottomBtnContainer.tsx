@@ -6,7 +6,7 @@ import "swiper/css";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
-import { setUserMypageTab } from "store/UserMypageTabSlice";
+import { setUserMypageTab } from "store/user/UserMypageTabSlice";
 
 enum UserMyTabType {
   history = 1,
