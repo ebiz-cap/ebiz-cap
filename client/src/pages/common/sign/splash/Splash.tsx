@@ -1,41 +1,48 @@
 // 앱 첫 접속시 소개 페이지 ( 쿠키 반영구로 남기고 재접시 안뜨게 )
+import { useState, useEffect } from "react";
+
 import styled, { keyframes } from "styled-components";
 
 const Splash = () => {
+  const [isSplash, setIsSplash] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSplash(false);
+    }, 2280);
+  }, []);
   return (
-    <div>
-      <SplashContainer>
-        <SplashTopTextGroup>
-          <SplashTextLineLT>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-          </SplashTextLineLT>
-          <SplashTextLineRT>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-          </SplashTextLineRT>
-        </SplashTopTextGroup>
-        <SplashMiddleGroup>d</SplashMiddleGroup>
-        <SplashBottomTextGroup>
-          <SplashTextLineLB>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-          </SplashTextLineLB>
-          <SplashTextLineRB>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-            <SplashTextUnit>머리할래!</SplashTextUnit>
-            <SplashTextUnit>머리할래?</SplashTextUnit>
-          </SplashTextLineRB>
-        </SplashBottomTextGroup>
-      </SplashContainer>
-    </div>
+    <SplashContainer className={isSplash ? "active-splash" : "inactive-splash"}>
+      <SplashTopTextGroup>
+        <SplashTextLineLT>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+        </SplashTextLineLT>
+        <SplashTextLineRT>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+        </SplashTextLineRT>
+      </SplashTopTextGroup>
+      <SplashMiddleGroup>d</SplashMiddleGroup>
+      <SplashBottomTextGroup>
+        <SplashTextLineLB>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+        </SplashTextLineLB>
+        <SplashTextLineRB>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashTextUnit>머리할래?</SplashTextUnit>
+        </SplashTextLineRB>
+      </SplashBottomTextGroup>
+    </SplashContainer>
   );
 };
 
@@ -50,11 +57,13 @@ const Fadeout = keyframes`
   }
 `;
 const SplashContainer = styled.div`
+  z-index: 2;
   position: relative;
   background-color: red;
-  width: 100%;
-  height: 100vh;
-  display: flex;
+  /* width: 100%; */
+  height: 100vh !important;
+  display: ${(props) =>
+    props.className === "active-splash" ? "flex" : "none"};
   flex-direction: column;
   /* align-items: center; */
   justify-content: space-between;

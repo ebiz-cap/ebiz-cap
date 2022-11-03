@@ -5,22 +5,18 @@ import styled from "styled-components";
 import Splash from "./splash/Splash";
 
 const Sign = (): JSX.Element => {
-  const [isSplash, setIsSplash] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsSplash(false);
-    }, 2280);
-  }, []);
   return (
     <SignBody>
-      {isSplash ? <Splash /> : <>화면없음</>}
-      <>본문</>
+      <Splash />
+      <div style={{ position: "absolute", top: "0%" }}>본문</div>
     </SignBody>
   );
 };
 
 const SignBody = styled.div`
-  width: 150vw;
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 `;
 export default Sign;
