@@ -8,7 +8,7 @@ export default function App() {
       // originWhitelist={["*"]}
       // source={{ uri: "http://115.85.182.215/" }}
       source={{
-        uri: "https://63510d78a565140067244dd7--muritest.netlify.app",
+        uri: "https://muri-alpha.netlify.app",
       }} //expo build:android
     />
   );

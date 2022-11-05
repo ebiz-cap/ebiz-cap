@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 
 import styled, { keyframes } from "styled-components";
+import splashImg1 from "../../../../env/imgsrc/splash/머리할래_1.png";
+import splashImg2 from "../../../../env/imgsrc/splash/머리할래_2.png";
+import logo from "../../../../env/imgsrc/brand/메인로고2.png";
 
 const Splash = () => {
   const [isSplash, setIsSplash] = useState<boolean>(true);
@@ -15,31 +18,33 @@ const Splash = () => {
     <SplashContainer className={isSplash ? "active-splash" : "inactive-splash"}>
       <SplashTopTextGroup>
         <SplashTextLineLT>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
         </SplashTextLineLT>
         <SplashTextLineRT>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
         </SplashTextLineRT>
       </SplashTopTextGroup>
-      <SplashMiddleGroup>d</SplashMiddleGroup>
+      <SplashMiddleGroup>
+        <SplashMainImgUnit alt="logo" src={logo} />
+      </SplashMiddleGroup>
       <SplashBottomTextGroup>
         <SplashTextLineLB>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
         </SplashTextLineLB>
         <SplashTextLineRB>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
-          <SplashTextUnit>머리할래!</SplashTextUnit>
-          <SplashTextUnit>머리할래?</SplashTextUnit>
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
+          <SplashImgUnit src={splashImg2} />
+          <SplashImgUnit src={splashImg1} />
         </SplashTextLineRB>
       </SplashBottomTextGroup>
     </SplashContainer>
@@ -78,6 +83,8 @@ const SplashTopTextGroup = styled.div`
 `;
 
 const SplashMiddleGroup = styled.div`
+  text-align: center;
+  margin-top: 40vh;
   width: 100%;
 `;
 
@@ -140,9 +147,11 @@ const SplashTextLineRB = styled.div`
   display: flex;
   animation: ${LineMoveRight} 5s linear;
 `;
-const SplashTextUnit = styled.div`
+
+const SplashImgUnit = styled.img`
   width: 130px;
-  font-family: Jalnan;
-  color: white;
-  font-size: 25px;
+`;
+
+const SplashMainImgUnit = styled.img`
+  width: 200px;
 `;
