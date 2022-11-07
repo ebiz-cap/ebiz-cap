@@ -65,7 +65,7 @@ const SplashContainer = styled.div`
   z-index: 2;
   position: relative;
   background-color: red;
-  /* width: 100%; */
+  width: 100%;
   height: 100vh !important;
   display: ${(props) =>
     props.className === "active-splash" ? "flex" : "none"};
