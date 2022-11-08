@@ -3,7 +3,6 @@ import UserTypeSelect from "./UserTypeSelect";
 
 //
 import Splash from "./splash/Splash";
-import { flexbox } from "@mui/system";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
 
@@ -22,12 +21,12 @@ const Sign = (): JSX.Element => {
     setIsSelected(!isSelected);
   };
 
-  const isUserActive = useSelector((state: RootState) => {
-    return state.isUserCardActive.value;
+  const isDesignerActive = useSelector((state: RootState) => {
+    return state.isLoggedNDesigner.value.isDesigner;
   });
 
   return (
-    <SignBody className={isUserActive ? "designer" : "user"}>
+    <SignBody className={isDesignerActive ? "designer" : "user"}>
       <Splash />
 
       <SignInContentsContainer>
@@ -43,11 +42,6 @@ const Sign = (): JSX.Element => {
         </TypeContainer>
 
         <SignContainer className={isSelected ? "selected" : "notSelected"}>
-          {/* <StyledTitleH2>로그인 해주세요</StyledTitleH2>
-          <SocialSignContainer>
-            <SocialSign />
-          </SocialSignContainer> */}
-
           <SignIn />
         </SignContainer>
       </SignInContentsContainer>

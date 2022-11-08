@@ -3,26 +3,24 @@ import React from "react";
 import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "store";
-import isUserCardActiveSlice, {
-  setIsUserCardActive,
-} from "store/common/isUserCardActive";
+import { setIsDesigner } from "store/common/isLoggedNDesignerSlice";
 
 export const CARDS = 2;
 const MAX_VISIBILITY = 2;
 
-export const Card = ({ title, typeNum, img }) => {
+export const Card = ({ title, isDesigner, img }) => {
   const dispatch = useDispatch();
-  const setIsUserCardActiveCall = (isUserCardActive) => {
-    console.log(typeNum);
-    dispatch(setIsUserCardActive(isUserCardActive));
+  const setIsDesignerCall = (isDesigner) => {
+    console.log(isDesigner);
+    dispatch(setIsDesigner(isDesigner));
   };
+  //
   return (
     <StyledCard
       src={img}
       className="card"
       onClick={() => {
-        setIsUserCardActiveCall(typeNum);
+        setIsDesignerCall(isDesigner);
       }}
     ></StyledCard>
   );
@@ -30,9 +28,8 @@ export const Card = ({ title, typeNum, img }) => {
 
 export const Carousel = ({ children }) => {
   const active = useSelector((state) => {
-    return state.isUserCardActive.value;
+    return state.isLoggedNDesigner.value.isDesigner;
   });
-  const count = React.Children.count(children);
 
   return (
     <StyledCarousel className="carousel">
@@ -59,7 +56,7 @@ export const Carousel = ({ children }) => {
 //
 const COLOR_GRAY = "#9CA3AF";
 
-const COLOR_BLACK = "#1F2937";
+// const COLOR_BLACK = "#1F2937";
 const CARD_SIZE = "90px";
 
 const StyledCarousel = styled.div`

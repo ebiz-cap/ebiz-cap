@@ -1,17 +1,44 @@
 import { SignInputLabel, SignFormControl, BootstrapInput } from "../components";
+
+import { useNavigate } from "react-router-dom";
 //
-import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setIsLogged } from "store/common/isLoggedNDesignerSlice";
+
 //
 import styled from "styled-components";
 import { STYLED_BTN_FULLWIDTH_VALUE } from "pages/components/CustomBtn";
 import { StyledTitleH2 } from "pages/components/CustomText";
 import SocialSign from "../../socialSign";
 import { STYLED_PADDING_VALUE } from "pages/components/CustomBox";
+import { RootState } from "store";
 
 const SignIn = (): JSX.Element => {
+  //
   const navigate = useNavigate();
+  //
 
+  const dispatch = useDispatch();
+  const isDesigner = useSelector((state: RootState) => {
+    return state.isLoggedNDesigner.value.isDesigner;
+  });
+
+  const setIsLoggedCall = (isLoggedIn: boolean) => {
+    dispatch(setIsLogged(isLoggedIn));
+    console.log("logged!!!");
+  };
+
+  const onClickSignIn = () => {
+    setIsLoggedCall(true);
+    if (isDesigner === true) {
+      navigate("/designer");
+      return;
+    }
+    navigate("/user");
+    return;
+  };
+
+  //
   return (
     <div>
       <StyledTitleH2>로그인 해주세요</StyledTitleH2>
@@ -39,7 +66,7 @@ const SignIn = (): JSX.Element => {
               type="password"
             />
           </SignFormControl>
-          <SignInBtn>로그인</SignInBtn>
+          <SignInBtn onClick={onClickSignIn}>로그인</SignInBtn>
         </div>
       </DefaultSignContainer>
       <NavigateToSignUp>

@@ -6,17 +6,26 @@ import { useSelector } from "react-redux";
 import { RootState } from "store";
 
 const UserTypeSelect = () => {
+  // const isUserActive = useSelector((state: RootState) => {
+  //   return state.isUserCardActive.value;
+  // });
+
   const isUserActive = useSelector((state: RootState) => {
-    return state.isUserCardActive.value;
+    return state.isLoggedNDesigner.value.isDesigner;
   });
   return (
     <CarouselContainer>
       <Carousel>
         <TypeBox>
-          <Card key={0} typeNum={0} title={"유저"} img={img_btnUser} />
+          <Card key={0} isDesigner={false} title={"유저"} img={img_btnUser} />
         </TypeBox>
         <TypeBox>
-          <Card key={1} typeNum={1} title={"디자이너"} img={img_btnDesigner} />
+          <Card
+            key={1}
+            isDesigner={true}
+            title={"디자이너"}
+            img={img_btnDesigner}
+          />
         </TypeBox>
       </Carousel>
       <TypeNotifyText>

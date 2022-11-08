@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";

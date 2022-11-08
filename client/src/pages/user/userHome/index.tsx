@@ -25,12 +25,11 @@ import "swiper/css/autoplay";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../store";
+import { useDispatch } from "react-redux";
 import { update } from "../../../store/user/mobUserFooterSlice";
 import { setIsCuration } from "store/user/mobUserTrendIsCurationSlice";
 
-const Home = (): JSX.Element => {
+const UserHome = (): JSX.Element => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -247,14 +246,13 @@ const IconImgCore = styled.img`
       transform: rotate(230deg);
     }
     8%,
-    10% { 
+    10% {
       transform: rotate(200deg);
     }
 
     10%,
     100% {
       transform: rotate(200deg);
-    }
     }
   }
 `;
@@ -263,12 +261,10 @@ const IconText = styled.div`
   margin-top: 4px;
 `;
 
-const BorderBox = styled.div``;
-
 const PromotionWrapper = styled.div``;
 
 const CustomImg = styled.img`
   width: 100%;
   height: 8 0%;
 `;
-export default Home;
+export default UserHome;

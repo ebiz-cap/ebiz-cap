@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { StyledTitleH2 } from "pages/components/CustomText";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "store";
@@ -12,14 +11,14 @@ const SignUpSucc = (): JSX.Element => {
   const NICKNAME = "수평";
   const EMAIL = "he1236@ajou.ac.kr";
 
-  const IS_DESIGNER = useSelector((state: RootState) => {
-    return state.isUserCardActive.value;
+  const isDesigner = useSelector((state: RootState) => {
+    return state.isLoggedNDesigner.value.isDesigner;
   });
 
   return (
     <WelcomeContainer>
       <PureH2 style={{ margin: "0px" }}>{NICKNAME}님,</PureH2>
-      {IS_DESIGNER ? (
+      {isDesigner ? (
         <PureH2>디자이너가 되신걸 환영해요!👏</PureH2>
       ) : (
         <PureH2>친구가 되신걸 환영해요!👏</PureH2>
