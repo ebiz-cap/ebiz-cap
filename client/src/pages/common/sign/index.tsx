@@ -8,10 +8,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "store";
 
 import { useState } from "react";
+
+import { STYLED_BTN_DONGGLE_VALUE } from "pages/components/CustomBtn";
 //
-import img_social_kakao from "../../../env/imgsrc/socialSign/kakao_login_medium_wide.png";
-import SocialGoogleBtn from "./social/google";
-import DefaultSignIn from "./defaultSignIn";
+import SocialSignIn from "./socialSignIn";
+import DefaultSignIn from "./signForm/defaultSignIn";
+
+//
+import { StyledTitleH2 } from "pages/components/CustomText";
+import { STYLED_PADDING_VALUE } from "pages/components/CustomBox";
 
 const Sign = (): JSX.Element => {
   const [isSelected, setIsSelected] = useState(false);
@@ -26,43 +31,33 @@ const Sign = (): JSX.Element => {
   return (
     <SignBody className={isUserActive ? "designer" : "user"}>
       <Splash />
-      <div
-        style={{
-          position: "absolute",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          height: "100%",
-        }}
-      >
+
+      <SignInContentsContainer>
         <TypeContainer className={isSelected ? "selected" : "notSelected"}>
-          <NotifyTextType>유저 타입을 선택해주세요</NotifyTextType>
+          <StyledTitleH2>유저 타입을 선택해주세요</StyledTitleH2>
           <UserTypeSelect />
           <ConfirmBtn
             className={isSelected ? "selected" : "notSelected"}
             onClick={onClickTypeConfirm}
           >
-            <div style={{ paddingTop: "10px", fontSize: "20px" }}>확인</div>
+            확인
           </ConfirmBtn>
         </TypeContainer>
 
         <SignContainer className={isSelected ? "selected" : "notSelected"}>
-          <NotifyTextType>로그인 해주세요</NotifyTextType>
+          <StyledTitleH2>로그인 해주세요</StyledTitleH2>
           <SocialSignContainer>
-            <img src={img_social_kakao} alt="social_kakao_btn" />
-            <SocialGoogleBtn />
+            <SocialSignIn />
           </SocialSignContainer>
           <DefaultSignContainer>
             <DefaultSignIn />
           </DefaultSignContainer>
         </SignContainer>
-      </div>
+      </SignInContentsContainer>
     </SignBody>
   );
 };
 
-const COLOR_PINK = "#EC4899";
-const COLOR_PURPLE = "#8B5CF6";
 //
 const SignBody = styled.div`
   width: 100%;
@@ -75,6 +70,14 @@ const SignBody = styled.div`
   transition: all 0.5s ease;
 `;
 
+const SignInContentsContainer = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  max-width: 400px;
+`;
 //
 const selectedTypeContTrans = keyframes`
   from {
@@ -105,18 +108,8 @@ const TypeContainer = styled.div`
 `;
 
 const ConfirmBtn = styled.div`
-  text-align: center;
-  transition: all 0.5s ease;
-
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: 100px;
-  background-color: ${COLOR_PURPLE};
-  color: white;
-  width: 80px;
-  height: 50px;
-  border-radius: 1rem;
+  ${STYLED_BTN_DONGGLE_VALUE};
 `;
 
 //
@@ -143,13 +136,10 @@ const SignContainer = styled.div`
         `};
   flex-direction: column;
   height: 0%;
-  /* background-color: purple; */
-  border-radius: 1rem;
-  padding: 40px 36px 28px 36px;
+  ${STYLED_PADDING_VALUE};
 `;
 
 const SocialSignContainer = styled.div`
-  border-radius: 2rem;
   margin-bottom: 10px;
 `;
 
@@ -158,9 +148,6 @@ const DefaultSignContainer = styled.div`
   border-bottom: 1px solid #f1f3f5;
   margin: 16px 0;
   padding-bottom: 12px;
-`;
-const NotifyTextType = styled.h2`
-  margin-bottom: 30px;
 `;
 
 export default Sign;

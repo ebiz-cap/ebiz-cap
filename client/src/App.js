@@ -10,6 +10,7 @@ import UserSearch from "pages/user/userSearch";
 import UserTrend from "pages/user/userTrend";
 import Home from "pages/user/home/Home";
 import Sign from "pages/common/sign";
+import SignUp from "pages/common/sign/signForm/signUp";
 
 import "./App.css";
 
@@ -19,7 +20,8 @@ function App() {
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<Sign />} />
-          <Route path="/login" element={<></>} />
+          <Route path="/signIn" element={<Sign />} />
+          <Route path="/signUp" element={<SignUp />} />
           <Route path="/user" element={<Home />}></Route>
           <Route path="/user/search" element={<UserSearch />} />
           <Route path="/user/trend" element={<UserTrend />} />

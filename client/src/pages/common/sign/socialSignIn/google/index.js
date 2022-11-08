@@ -23,7 +23,7 @@ const SocialGoogleBtn = (props) => {
   };
 
   return (
-    <div style={{ marginTop: "10px" }}>
+    <div>
       <GoogleOAuthProvider
         clientId={process.env.SOCIAL_SIGN_GOOGLE_OAUTH2_CLIENT_ID}
       >
