@@ -10,9 +10,7 @@ import { RootState } from "store";
 import { useState } from "react";
 
 import { STYLED_BTN_DONGGLE_VALUE } from "pages/components/CustomBtn";
-//
-import SocialSignIn from "./socialSignIn";
-import DefaultSignIn from "./signForm/defaultSignIn";
+import SignIn from "./signForm/signIn";
 
 //
 import { StyledTitleH2 } from "pages/components/CustomText";
@@ -45,13 +43,12 @@ const Sign = (): JSX.Element => {
         </TypeContainer>
 
         <SignContainer className={isSelected ? "selected" : "notSelected"}>
-          <StyledTitleH2>로그인 해주세요</StyledTitleH2>
+          {/* <StyledTitleH2>로그인 해주세요</StyledTitleH2>
           <SocialSignContainer>
-            <SocialSignIn />
-          </SocialSignContainer>
-          <DefaultSignContainer>
-            <DefaultSignIn />
-          </DefaultSignContainer>
+            <SocialSign />
+          </SocialSignContainer> */}
+
+          <SignIn />
         </SignContainer>
       </SignInContentsContainer>
     </SignBody>
@@ -137,17 +134,6 @@ const SignContainer = styled.div`
   flex-direction: column;
   height: 0%;
   ${STYLED_PADDING_VALUE};
-`;
-
-const SocialSignContainer = styled.div`
-  margin-bottom: 10px;
-`;
-
-const DefaultSignContainer = styled.div`
-  border-top: 1px solid #f1f3f5;
-  border-bottom: 1px solid #f1f3f5;
-  margin: 16px 0;
-  padding-bottom: 12px;
 `;
 
 export default Sign;
