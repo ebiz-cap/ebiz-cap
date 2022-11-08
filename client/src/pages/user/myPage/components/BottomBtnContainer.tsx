@@ -58,7 +58,7 @@ export default BottomBtnContainer;
 const BottomBtnBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-contents: space-evenly;
+  justify-content: space-evenly;
   width: 100;
   height: 35px;
   border-bottom: solid;

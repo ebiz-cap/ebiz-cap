@@ -64,7 +64,7 @@ const Fadeout = keyframes`
 const SplashContainer = styled.div`
   z-index: 2;
   position: relative;
-  background-color: red;
+  background-color: #e65b90;
   width: 100%;
   height: 100vh !important;
   display: ${(props) =>

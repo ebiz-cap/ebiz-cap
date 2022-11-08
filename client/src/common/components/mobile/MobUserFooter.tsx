@@ -13,7 +13,6 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -44,7 +43,7 @@ const MobFooter = (): JSX.Element => {
   //
   const UserFooterContents = (): JSX.Element => {
     return (
-      <div className="userFooterContents">
+      <FooterContents className="userFooterContents">
         <IconBox
           onClick={() => {
             navigate("/user");
@@ -119,12 +118,12 @@ const MobFooter = (): JSX.Element => {
 
           <div className="icon-text">내정보</div>
         </IconBox>
-      </div>
+      </FooterContents>
     );
   };
 
   const DesignerFooterContents = (): JSX.Element => {
-    return <div className="designerFooterContents"></div>;
+    return <FooterContents className="designerFooterContents"></FooterContents>;
   };
 
   return (
@@ -151,6 +150,14 @@ export default MobFooter;
 const MobFooterContainer = styled.footer`
   display: ${(props) =>
     props.className === "active-footer" ? "inline-block" : "none"};
+`;
+
+const FooterContents = styled.div`
+  padding: 12px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 `;
 const IconBox = styled.div`
   display: flex;
