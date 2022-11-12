@@ -8,7 +8,6 @@ module.exports = new Schema(
     shortId,
     USER_COMMON,
     salonId: { type: String, required: false },
-    avg_score: {},
   },
   {
     timestamps: true,

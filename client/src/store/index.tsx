@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import isLoggedNDesignerSlice from "./common/isLoggedNDesignerSlice";
+import signUpInfoSlice from "./common/signUpInfoSlice";
 
 import mobUserFooterSlice from "./user/mobUserFooterSlice";
 import mobUserSearchIsGpsSlice from "./user/mobUserSearchIsGpsSlice";
@@ -12,6 +13,7 @@ const store = configureStore({
   reducer: {
     // common
     isLoggedNDesigner: isLoggedNDesignerSlice.reducer,
+    signUpInfo: signUpInfoSlice.reducer,
     // user
     mobUserFooter: mobUserFooterSlice.reducer,
     mobUserSearchIsGps: mobUserSearchIsGpsSlice.reducer,
