@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "636f48ae196f37cfe5f82cb1"
+  },
+  "shortId": 1,
+  "email": "he12569@naver.com",
+  "password": "1256",
+  "name": "박인혜",
+  "nickName": "수직",
+  "age": 27,
+  "gender": "F",
+  "phoneNum": 1033339999
+}]

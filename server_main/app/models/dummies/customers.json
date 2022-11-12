@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "636f48a7196f37cfe5f82cae"
+  },
+  "shortId": 1,
+  "email": "he1236@ajou.ac.kr",
+  "password": "1256",
+  "name": "조성우",
+  "nickName": "수평",
+  "age": 27,
+  "gender": "M",
+  "phoneNum": 1022970618
+}]

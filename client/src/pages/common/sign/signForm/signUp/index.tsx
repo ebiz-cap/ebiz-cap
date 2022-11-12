@@ -6,6 +6,7 @@ import { BORDERLINE_TB_VALUE } from "pages/components/LAYOUT";
 import SocialSign from "../../socialSign";
 import { StyledTitleH2 } from "pages/components/CustomText";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = (): JSX.Element => {
   const navigate = useNavigate();
@@ -54,6 +55,15 @@ const SignUp = (): JSX.Element => {
         </SignFormControl>
         <SignUpBtn
           onClick={() => {
+            axios
+              .post("http://localhost:8000/user/register", {
+                id: "a",
+                pw: "b",
+                name: "c",
+              })
+              .then((res) => {
+                console.log(res);
+              });
             navigate("./success");
           }}
         >

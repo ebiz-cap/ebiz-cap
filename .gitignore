@@ -3,3 +3,7 @@ rootkey.csv
 
 # Local Netlify folder
 .netlify
+
+ref_inssaCli
+
+ref_server

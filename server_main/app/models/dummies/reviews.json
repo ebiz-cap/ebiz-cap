@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "636f48ba196f37cfe5f82cb7"
+  },
+  "contents": "머리 참 잘해줘용",
+  "avg_score": 5,
+  "reservationId": {
+    "$oid": "636f48b4196f37cfe5f82cb4"
+  }
+}]
