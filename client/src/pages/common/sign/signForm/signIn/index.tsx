@@ -1,5 +1,7 @@
 import { SignInputLabel, SignFormControl, BootstrapInput } from "../components";
 
+import $ from "jquery";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //
 import { useSelector, useDispatch } from "react-redux";
@@ -12,11 +14,19 @@ import { StyledTitleH2 } from "pages/components/CustomText";
 import SocialSign from "../../socialSign";
 import { STYLED_PADDING_VALUE } from "pages/components/CustomBox";
 import { RootState } from "store";
+import axios from "axios";
+import { URL, PORT } from "../../../../../env/proxy";
 
 const SignIn = (): JSX.Element => {
   //
   const navigate = useNavigate();
+  const [signFormErrMsg, setSignFormErrMsg] = useState("");
+
   //
+  const [errMsg, setErrMsg] = useState("");
+
+  //
+  const [userType, setUserType] = useState("customer");
 
   const dispatch = useDispatch();
   const isDesigner = useSelector((state: RootState) => {
@@ -28,7 +38,61 @@ const SignIn = (): JSX.Element => {
     console.log("logged!!!");
   };
 
+  //
+  const [signInData, setSignInData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onChangeSignInData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSignInData({
+      ...signInData,
+      [e.target.name]: e.target.value,
+    });
+
+    console.log("[업데이트 SignInData]");
+  };
+
   const onClickSignIn = () => {
+    if (signInData.email === "") {
+      setSignFormErrMsg("이메일을 입력해주세요.");
+      $("#email-input").focus();
+      return;
+    }
+
+    if (signInData.password === "") {
+      setSignFormErrMsg("비밀번호를 입력해주세요");
+      $("password-input").focus();
+      return;
+    }
+
+    if (isDesigner) {
+      setUserType("designer");
+    } else {
+      setUserType("customer");
+    }
+
+    signInReq(userType)
+      .then((res) => {
+        console.log(res);
+        alert("로그인 되었습니다.");
+        navigateByUserType();
+      })
+      .catch((e) => {
+        console.log(e);
+        setErrMsg(e.response.data.fail);
+        alert("로그인 실패");
+      });
+  };
+
+  const signInReq = async (userType: any) => {
+    return await axios.post(
+      `${URL}${PORT.node}/${userType}/signIn`,
+      signInData
+    );
+  };
+
+  const navigateByUserType = () => {
     setIsLoggedCall(true);
     if (isDesigner === true) {
       navigate("/designer");
@@ -38,7 +102,6 @@ const SignIn = (): JSX.Element => {
     return;
   };
 
-  //
   return (
     <div>
       <StyledTitleH2>로그인 해주세요</StyledTitleH2>
