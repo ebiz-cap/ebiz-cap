@@ -3,9 +3,9 @@ module.exports = {
   password: String,
   name: String,
   nickName: String,
-  age: Number,
-  gender: String,
-  phoneNum: Number,
+  age: { type: Number, required: false }, //
+  gender: { type: String, required: false }, //
+  phoneNum: { type: Number, required: false }, //
   profileImg: { type: String, required: false },
   comment: { type: String, required: false },
 };

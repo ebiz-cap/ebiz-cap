@@ -1,5 +1,4 @@
 import { SignInputLabel, SignFormControl, BootstrapInput } from "../components";
-
 import $ from "jquery";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +15,7 @@ import { STYLED_PADDING_VALUE } from "pages/components/CustomBox";
 import { RootState } from "store";
 import axios from "axios";
 import { URL, PORT } from "../../../../../env/proxy";
+import { COLOR_PINK1 } from "pages/components/COLOR";
 
 const SignIn = (): JSX.Element => {
   //
@@ -81,7 +81,7 @@ const SignIn = (): JSX.Element => {
       .catch((e) => {
         console.log(e);
         setErrMsg(e.response.data.fail);
-        alert("로그인 실패");
+        alert(`로그인 실패: ${errMsg}`);
       });
   };
 
@@ -117,6 +117,10 @@ const SignIn = (): JSX.Element => {
             <BootstrapInput
               id="email-input"
               placeholder="이메일을 입력해 주세요"
+              value={signInData.email}
+              autoFocus
+              onChange={onChangeSignInData}
+              name="email"
             />
           </SignFormControl>
           <SignFormControl variant="standard">
@@ -127,8 +131,13 @@ const SignIn = (): JSX.Element => {
               id="password-input"
               placeholder="비밀번호를 입력해 주세요"
               type="password"
+              value={signInData.password}
+              autoFocus
+              onChange={onChangeSignInData}
+              name="password"
             />
           </SignFormControl>
+          <p style={{ color: COLOR_PINK1 }}>{signFormErrMsg}</p>
           <SignInBtn onClick={onClickSignIn}>로그인</SignInBtn>
         </div>
       </DefaultSignContainer>
