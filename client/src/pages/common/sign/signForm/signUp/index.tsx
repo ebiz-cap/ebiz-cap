@@ -13,9 +13,12 @@ import { RootState } from "store";
 import { URL, PORT } from "env/proxy";
 import React, { useState } from "react";
 import { setSignUpInfo } from "store/common/signUpInfoSlice";
+import { COLOR_PINK1 } from "pages/components/COLOR";
+import $ from "jquery";
 
 const SignUp = (): JSX.Element => {
   const navigate = useNavigate();
+  const [signFormErrMsg, setSignFormErrMsg] = useState("");
 
   const isDesigner = useSelector((state: RootState) => {
     return state.isLoggedNDesigner.value.isDesigner;
@@ -53,11 +56,55 @@ const SignUp = (): JSX.Element => {
   };
 
   const onClickSignUp = () => {
+    if (signUpData.name === "") {
+      setSignFormErrMsg("이름을 입력해주세요.");
+      $("#name-input").focus();
+      return;
+    }
+
+    if (signUpData.nickName === "") {
+      setSignFormErrMsg("닉네임을 입력해주세요.");
+      $("#nickName-input").focus();
+      return;
+    }
+
+    if (signUpData.email === "") {
+      setSignFormErrMsg("이메일을 입력해주세요");
+      $("#email-input").focus();
+      return;
+    }
+
+    if (signUpData.password === "") {
+      setSignFormErrMsg("비밀번호를 입력해주세요.");
+      $("#password-input").focus();
+      return;
+    }
+
+    if (signUpData.rePassword === "") {
+      setSignFormErrMsg("재확인 비밀번호를 입력해주세요.");
+      $("#repassword-input").focus();
+      return;
+    }
+
+    if (signUpData.password !== signUpData.rePassword) {
+      alert("재확인 비밀번호가 다릅니다.");
+      setSignUpData({
+        ...signUpData,
+        password: "",
+        rePassword: "",
+      });
+      $("#password-input").focus();
+      setSignFormErrMsg("재확인 비밀번호가 다릅니다.");
+      return;
+    }
+
+    //
     if (isDesigner) {
       setUserType("designer");
     } else {
       setUserType("customer");
     }
+
     postSignUp(userType)
       .then((res: any) => {
         console.log(res);
@@ -157,6 +204,7 @@ const SignUp = (): JSX.Element => {
             name="rePassword"
           />
         </SignFormControl>
+        <p style={{ color: COLOR_PINK1 }}>{signFormErrMsg}</p>
         <SignUpBtn
           onClick={() => {
             onClickSignUp();
