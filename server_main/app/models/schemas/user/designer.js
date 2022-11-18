@@ -6,7 +6,15 @@ const USER_COMMON = require("./USER_COMMON");
 module.exports = new Schema(
   {
     shortId,
-    USER_COMMON,
+    email: String,
+    password: String,
+    name: String,
+    nickName: String,
+    age: { type: Number, required: false }, //
+    gender: { type: String, required: false }, //
+    phoneNum: { type: Number, required: false }, //
+    profileImg: { type: String, required: false },
+    comment: { type: String, required: false },
     salonId: { type: String, required: false },
   },
   {
