@@ -7,12 +7,12 @@ import img_image4 from "../../../env/imgsrc/promotion/img_image4.jpg";
 import img_image5 from "../../../env/imgsrc/promotion/img_image5.jpg";
 
 import icon1 from "../../../env/imgsrc/pictoSet1/sciss.png";
-import icon2 from "../../../env/imgsrc/pictoSet1/pin.png";
-import icon3 from "../../../env/imgsrc/pictoSet1/instagram.png";
-import icon4 from "../../../env/imgsrc/pictoSet1/speech-bubble.png";
-import icon5 from "../../../env/imgsrc/pictoSet1/tinder.png";
-import icon6 from "../../../env/imgsrc/pictoSet1/books.png";
-import icon7 from "../../../env/imgsrc/pictoSet1/humanGurm.png";
+import icon2 from "../../../env/imgsrc/pictoSet2/curation.png";
+import icon3 from "../../../env/imgsrc/pictoSet2/history.png";
+import icon4 from "../../../env/imgsrc/pictoSet2/dm.png";
+import icon5 from "../../../env/imgsrc/pictoSet2/trend.png";
+import icon6 from "../../../env/imgsrc/pictoSet2/reservation.png";
+import icon7 from "../../../env/imgsrc/pictoSet2/community.png";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -82,7 +82,7 @@ const UserHome = (): JSX.Element => {
             }}
           >
             <IconImg src={icon4} alt="cat1" />
-            <IconText>DM</IconText>
+            <IconText>디엠</IconText>
           </IconBox>
         </CategoryWrapper1>
         <div
@@ -139,7 +139,7 @@ const UserHome = (): JSX.Element => {
               navigate("/user/community");
             }}
           >
-            <IconImgCommu src={icon7} alt="cat1" />
+            <IconImg src={icon7} alt="cat1" />
             <IconText>커뮤니티</IconText>
           </IconBox>
         </CategoryWrapper2>
