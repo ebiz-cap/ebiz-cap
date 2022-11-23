@@ -9,6 +9,8 @@ import mobUserTrendIsCurationSlice from "./user/mobUserTrendIsCurationSlice";
 import UserTrendIsMySlice from "./user/UserTrendIsMy";
 import UserMypageTabSlice from "./user/UserMypageTabSlice";
 
+import designerFooterSlice from "./designer/designerFooterSlice";
+
 const store = configureStore({
   reducer: {
     // common
@@ -22,6 +24,7 @@ const store = configureStore({
     userMypageTab: UserMypageTabSlice.reducer,
 
     // designer
+    designerFooter: designerFooterSlice.reducer,
   },
 });
 

@@ -52,7 +52,7 @@ const UserHome = (): JSX.Element => {
           <IconBox
             onClick={() => {
               setMobFooterTabCall("search");
-              navigate("/user/search");
+              navigate("/customer/search");
             }}
           >
             <IconImgCore src={icon1} alt="cat1" />
@@ -61,7 +61,7 @@ const UserHome = (): JSX.Element => {
           <IconBox
             onClick={() => {
               // setMobFooterTabCall("home");
-              navigate("/user/reservation");
+              navigate("/customer/reservation");
             }}
           >
             <IconImg src={icon2} alt="cat1" />
@@ -70,7 +70,7 @@ const UserHome = (): JSX.Element => {
           <IconBox
             onClick={() => {
               // setMobFooterTabCall("myPage");
-              navigate("/user/history");
+              navigate("/customer/history");
             }}
           >
             <IconImg src={icon3} alt="cat1" />
@@ -79,7 +79,7 @@ const UserHome = (): JSX.Element => {
           <IconBox
             onClick={() => {
               // setMobFooterTabCall("myPage");
-              navigate("/user/dm");
+              navigate("/customer/dm");
             }}
           >
             <IconImg src={icon4} alt="cat1" />

@@ -7,19 +7,24 @@ import ContentCutOutlinedIcon from "@mui/icons-material/ContentCutOutlined";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
+import testProfileImg from "../../../env/imgsrc/test_profileImg.jpg";
 
+//
 import { useNavigate } from "react-router-dom";
 
+//
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 import { update } from "../../../store/user/mobUserFooterSlice";
 import "./MobUserFooter.css";
 
+import { setDesignerFooter } from "store/designer/designerFooterSlice";
+//
 import styled from "styled-components";
 
 const MobFooter = (): JSX.Element => {
@@ -27,12 +32,33 @@ const MobFooter = (): JSX.Element => {
   const dispatch = useDispatch();
 
   //
-  const tabType = useSelector((state: RootState) => {
+  const customerTabType = useSelector((state: RootState) => {
     return state.mobUserFooter.value;
   });
-  const setTabType = (tabStr: String) => {
+
+  const designerTabType = useSelector((state: RootState) => {
+    return state.designerFooter.value;
+  });
+
+  const setCustomerTabType = (tabStr: String) => {
     dispatch(update(tabStr));
   };
+  const setDesignerTabType = (tabStr: String) => {
+    dispatch(setDesignerFooter(tabStr));
+  };
+
+  const setUserTabTypeCall = (isCustomer: boolean, tabStr: String) => {
+    if (isCustomer) {
+      setCustomerTabType(tabStr);
+    } else {
+      setDesignerTabType(tabStr);
+    }
+    let userType = isCustomer ? "customer" : "designer";
+
+    console.log(`[FooterDestPath]: ${userType} -- ${tabStr}`);
+    navigate(`/${userType}/${tabStr}`);
+  };
+
   //
   const isLoggedNDesigner = useSelector((state: RootState) => {
     return state.isLoggedNDesigner.value;
@@ -41,16 +67,15 @@ const MobFooter = (): JSX.Element => {
   //
 
   //
-  const UserFooterContents = (): JSX.Element => {
+  const CustomerFooterContents = (): JSX.Element => {
     return (
-      <FooterContents className="userFooterContents">
+      <FooterContents className="customerFooterContents">
         <IconBox
           onClick={() => {
-            navigate("/user");
-            setTabType("home");
+            setUserTabTypeCall(true, "home");
           }}
         >
-          {tabType === "home" ? (
+          {customerTabType === "home" ? (
             <HomeIcon color="action" className="onIcon" />
           ) : (
             <HomeOutlinedIcon color="action" className="icon" />
@@ -61,11 +86,10 @@ const MobFooter = (): JSX.Element => {
 
         <IconBox
           onClick={() => {
-            navigate("/user/search");
-            setTabType("search");
+            setUserTabTypeCall(true, "search");
           }}
         >
-          {tabType === "search" ? (
+          {customerTabType === "search" ? (
             <ContentCutIcon className="onIcon" />
           ) : (
             <ContentCutOutlinedIcon className="icon" />
@@ -76,11 +100,10 @@ const MobFooter = (): JSX.Element => {
 
         <IconBox
           onClick={() => {
-            navigate("/user/trend");
-            setTabType("trend");
+            setUserTabTypeCall(true, "trend");
           }}
         >
-          {tabType === "trend" ? (
+          {customerTabType === "trend" ? (
             <WhatshotIcon className="onIcon" />
           ) : (
             <WhatshotOutlinedIcon className="icon" />
@@ -91,11 +114,10 @@ const MobFooter = (): JSX.Element => {
 
         <IconBox
           onClick={() => {
-            navigate("/user/community");
-            setTabType("community");
+            setUserTabTypeCall(true, "community");
           }}
         >
-          {tabType === "community" ? (
+          {customerTabType === "community" ? (
             <AccountBalanceIcon className="onIcon" />
           ) : (
             <AccountBalanceOutlinedIcon className="icon" />
@@ -106,24 +128,85 @@ const MobFooter = (): JSX.Element => {
 
         <IconBox
           onClick={() => {
-            navigate("/user/myPage");
-            setTabType("myPage");
+            setUserTabTypeCall(true, "myPage");
           }}
         >
-          {tabType === "myPage" ? (
+          {/* {customerTabType === "myPage" ? (
             <AccountCircleIcon className="onIcon" />
           ) : (
             <AccountCircleOutlinedIcon className="icon" />
-          )}
-
-          <div className="icon-text">내정보</div>
+          )} */}
+          <img
+            style={{
+              width: "43px",
+              borderRadius: "100px",
+            }}
+            src={testProfileImg}
+            alt="toMyPage"
+          />
         </IconBox>
       </FooterContents>
     );
   };
 
   const DesignerFooterContents = (): JSX.Element => {
-    return <FooterContents className="designerFooterContents"></FooterContents>;
+    return (
+      <FooterContents className="designerFooterContents">
+        <IconBox
+          onClick={() => {
+            setUserTabTypeCall(false, "home");
+          }}
+        >
+          {designerTabType === "home" ? (
+            <HomeIcon color="action" className="onIcon" />
+          ) : (
+            <HomeOutlinedIcon color="action" className="icon" />
+          )}
+          <div className="icon-text">홈</div>
+        </IconBox>
+
+        <IconBox
+          onClick={() => {
+            setUserTabTypeCall(false, "trend");
+          }}
+        >
+          {designerTabType === "trend" ? (
+            <WhatshotIcon className="onIcon" />
+          ) : (
+            <WhatshotOutlinedIcon className="icon" />
+          )}
+          <div className="icon-text">트렌드</div>
+        </IconBox>
+
+        <IconBox
+          onClick={() => {
+            setUserTabTypeCall(false, "community");
+          }}
+        >
+          {designerTabType === "community" ? (
+            <AccountBalanceIcon className="onIcon" />
+          ) : (
+            <AccountBalanceOutlinedIcon className="icon" />
+          )}
+          <div className="icon-text">커뮤니티</div>
+        </IconBox>
+
+        <IconBox
+          onClick={() => {
+            setUserTabTypeCall(false, "myPage");
+          }}
+        >
+          <img
+            style={{
+              width: "43px",
+              borderRadius: "100px",
+            }}
+            src={testProfileImg}
+            alt="toMyPage"
+          />
+        </IconBox>
+      </FooterContents>
+    );
   };
 
   return (
@@ -136,7 +219,7 @@ const MobFooter = (): JSX.Element => {
         isLoggedNDesigner.isDesigner ? (
           <DesignerFooterContents />
         ) : (
-          <UserFooterContents />
+          <CustomerFooterContents />
         )
       ) : (
         <></>

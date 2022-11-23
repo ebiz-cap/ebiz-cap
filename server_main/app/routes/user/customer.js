@@ -46,10 +46,9 @@ router.post(
       result: "회원가입이 완료되었습니다. 로그인 해주세요.",
       status: true,
       value: {
-        accessToken: token,
         email: email,
-        name: checkEmail.name,
-        nickName: checkEmail.nickName,
+        name: name,
+        nickName: nickName,
       },
     });
   })

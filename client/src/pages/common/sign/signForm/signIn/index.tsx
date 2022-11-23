@@ -98,10 +98,10 @@ const SignIn = (): JSX.Element => {
   const navigateByUserType = () => {
     setIsLoggedCall(true);
     if (isDesigner) {
-      navigate("/designer");
+      navigate("/designer/home");
       return;
     }
-    navigate("/user");
+    navigate("/customer/home");
     return;
   };
 

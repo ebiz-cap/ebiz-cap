@@ -20,6 +20,7 @@ import DesignerHome from "pages/designer/designerHome";
 
 //
 import "./App.css";
+import DesignerTrend from "pages/designer/designerTrend";
 
 function App() {
   return (
@@ -31,13 +32,19 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/signUp/success" element={<SignUpSucc />} />
 
-          <Route path="/user" element={<UserHome />}></Route>
-          <Route path="/user/search" element={<UserSearch />} />
-          <Route path="/user/trend" element={<UserTrend />} />
-          <Route path="/user/community" element={<div></div>} />
-          <Route path="/user/myPage" element={<MyPage />} />
+          <Route path="/customer" element={<UserHome />}></Route>
+          <Route path="/customer/home" element={<UserHome />}></Route>
+          <Route path="/customer/search" element={<UserSearch />} />
+          <Route path="/customer/trend" element={<UserTrend />} />
+          <Route path="/customer/community" element={<div></div>} />
+          <Route path="/customer/myPage" element={<MyPage />} />
 
           <Route path="/designer" element={<DesignerHome />} />
+          <Route path="/designer/home" element={<DesignerHome />} />
+          <Route path="/designer/trend" element={<DesignerTrend />} />
+          <Route path="/designer/community" element={<></>} />
+          <Route path="/designer/myPage" element={<></>} />
+          <Route path="/designer/chat" element={<DesignerHome />} />
         </Routes>
         <Mobile>
           <MobUserFooter />
