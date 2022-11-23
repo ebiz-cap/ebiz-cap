@@ -2,6 +2,7 @@ import { SignInputLabel, SignFormControl, BootstrapInput } from "../components";
 import $ from "jquery";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 //
 import { useSelector, useDispatch } from "react-redux";
 import { setIsLogged } from "store/common/isLoggedNDesignerSlice";
@@ -19,14 +20,21 @@ import { COLOR_PINK1 } from "pages/components/COLOR";
 
 const SignIn = (): JSX.Element => {
   //
+  const [cookies, setCookie] = useCookies(["userData"]);
+
+  const setUserCookieCall = (userData: any) => {
+    let now = new Date();
+    let after2h = new Date();
+    console.log(userData);
+    after2h.setMinutes(now.getMinutes() + 120);
+    setCookie("userData", userData, { path: "/", expires: after2h });
+  };
+
   const navigate = useNavigate();
   const [signFormErrMsg, setSignFormErrMsg] = useState("");
 
   //
   const [errMsg, setErrMsg] = useState("");
-
-  //
-  const [userType, setUserType] = useState("customer");
 
   const dispatch = useDispatch();
   const isDesigner = useSelector((state: RootState) => {
@@ -66,16 +74,11 @@ const SignIn = (): JSX.Element => {
       return;
     }
 
-    if (isDesigner) {
-      setUserType("designer");
-    } else {
-      setUserType("customer");
-    }
-
-    signInReq(userType)
+    signInReq()
       .then((res) => {
         console.log(res);
-        alert("로그인 되었습니다.");
+        alert(res.data.result);
+        setUserCookieCall(res.data.value);
         navigateByUserType();
       })
       .catch((e) => {
@@ -85,16 +88,16 @@ const SignIn = (): JSX.Element => {
       });
   };
 
-  const signInReq = async (userType: any) => {
+  const signInReq = async () => {
     return await axios.post(
-      `${URL}${PORT.node}/${userType}/signIn`,
+      `${URL}${PORT.node}/${isDesigner ? "designer" : "customer"}/signIn`,
       signInData
     );
   };
 
   const navigateByUserType = () => {
     setIsLoggedCall(true);
-    if (isDesigner === true) {
+    if (isDesigner) {
       navigate("/designer");
       return;
     }

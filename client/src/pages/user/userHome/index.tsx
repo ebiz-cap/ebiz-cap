@@ -14,6 +14,7 @@ import icon5 from "../../../env/imgsrc/pictoSet2/trend.png";
 import icon6 from "../../../env/imgsrc/pictoSet2/reservation.png";
 import icon7 from "../../../env/imgsrc/pictoSet2/community.png";
 
+import { TitleLogo, TitleWrapper } from "pages/components/CustomBox";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -176,17 +177,6 @@ const UserHome = (): JSX.Element => {
     </div>
   );
 };
-
-const TitleLogo = styled.img`
-  width: calc(25vw);
-`;
-const TitleWrapper = styled.div`
-  margin-top: 10%;
-  margin-bottom: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const CategoryContainer = styled.div`
   width: 100%;

@@ -5,11 +5,17 @@ const crypto = require("crypto");
 const { Customer } = require("../../models");
 const jwt = require("jsonwebtoken");
 const jwtConfig = require("../../config/jwtConfig.json");
+const shortId = require("../../models/schemas/type/short-id");
 // const nodeMailer = require("nodemailer");
+
+const logType = () => {
+  console.log("[Customer]");
+};
 
 router.post(
   "/signUp",
   asyncHandler(async (req, res, next) => {
+    logType();
     console.log("[SignUp 응답처리 진행]");
     const { email, password, name, nickName } = req.body;
     console.log(req.body);
@@ -37,11 +43,13 @@ router.post(
     });
 
     res.json({
-      result: "회원가입이 완료되었습니다. 로그인을 해주세요.",
+      result: "회원가입이 완료되었습니다. 로그인 해주세요.",
+      status: true,
       value: {
-        email,
-        name,
-        nickName,
+        accessToken: token,
+        email: email,
+        name: checkEmail.name,
+        nickName: checkEmail.nickName,
       },
     });
   })
@@ -50,6 +58,8 @@ router.post(
 router.post(
   "/signIn",
   asyncHandler(async (req, res, next) => {
+    logType();
+
     const { email, password } = req.body;
 
     let hashPassword = passwordHash(password);
@@ -88,10 +98,15 @@ router.post(
             .json({ status: false, message: "로그인을 해주세요." });
         } else {
           res.json({
-            status: true,
-            accessToken: token,
-            email: email,
-            name: checkEmail.name,
+            result: "로그인 되었습니다.",
+            value: {
+              status: true,
+              accessToken: token,
+              shortId: checkEmail.shortId,
+              email: email,
+              name: checkEmail.name,
+              nickName: checkEmail.name,
+            },
           });
         }
       }

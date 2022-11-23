@@ -5,7 +5,7 @@ const ReservationSchema = require("./schemas/Reservation");
 const ReviewSchema = require("./schemas/Review");
 
 exports.Customer = mongoose.model("Customer", CustomerSchema);
-exports.Desginer = mongoose.model("Designer", DesignerSchema);
+exports.Designer = mongoose.model("Designer", DesignerSchema);
 //
 exports.Reservation = mongoose.model("Reservation", ReservationSchema);
 exports.Review = mongoose.model("Review", ReviewSchema);

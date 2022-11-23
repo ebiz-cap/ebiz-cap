@@ -29,8 +29,7 @@ const SignUp = (): JSX.Element => {
     dispatch(setSignUpInfo(signUpInfo));
     console.log("( signUp redux state Updated! )");
   };
-  //
-  const [userType, setUserType] = useState("customer");
+
   const [errMsg, setErrMsg] = useState("");
 
   //
@@ -56,6 +55,8 @@ const SignUp = (): JSX.Element => {
   };
 
   const onClickSignUp = () => {
+    //
+
     if (signUpData.name === "") {
       setSignFormErrMsg("이름을 입력해주세요.");
       $("#name-input").focus();
@@ -98,15 +99,9 @@ const SignUp = (): JSX.Element => {
       return;
     }
 
-    //
-    if (isDesigner) {
-      setUserType("designer");
-    } else {
-      setUserType("customer");
-    }
-
-    postSignUp(userType)
+    postSignUp()
       .then((res: any) => {
+        console.log("회원가입타입:");
         console.log(res);
         setSignUpInfoCall({
           nickName: res.data.value.nickName,
@@ -127,11 +122,9 @@ const SignUp = (): JSX.Element => {
       });
   };
 
-  const postSignUp = async (userType: any) => {
-    // console.log(`[postSignUpInfo]: ${userType},${URL},${PORT.node}`);
-
+  const postSignUp = async () => {
     return await axios.post(
-      `${URL}${PORT.node}/${userType}/signUp`,
+      `${URL}${PORT.node}/${isDesigner ? "designer" : "customer"}/signUp`,
       signUpData
     );
   };
