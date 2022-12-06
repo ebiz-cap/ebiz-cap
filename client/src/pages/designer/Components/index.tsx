@@ -4,6 +4,14 @@ import styled from "styled-components";
 const ProfileContainer = styled.div`
   background-color: #c58fff;
   border-radius: 0px 0px 30px 30px;
+
+  & > .top-pad {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-top: 12px;
+  }
 `;
 
 const MyInfoContainer = styled.div`
@@ -23,6 +31,23 @@ const MyInfoContainer = styled.div`
     border-color: white;
     border-width: 4px;
     border-style: solid;
+  }
+
+  & .mypage-imgbox {
+    position: absolute;
+    top: 60px;
+
+    & > .img-profile {
+      border-radius: 100px;
+      border-color: white;
+      border-width: 4px;
+      border-style: solid;
+    }
+
+    & > .nickName-profile {
+      font-weight: bold;
+      font-size: 20px;
+    }
   }
 `;
 
@@ -61,7 +86,6 @@ const CategoryWrapper1 = styled.div`
 
 const ReservationContainer = styled.div`
   height: 120px;
-  /* width: 90%; */
   border-radius: 10px 10px 10px 10px;
   background-color: white;
 
@@ -90,7 +114,6 @@ const ReservationContainer = styled.div`
   .icon-text {
     font-weight: bold;
   }
-  
 `;
 
 const IconBox = styled.div`
@@ -117,8 +140,15 @@ const MainContentsContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  & > .title-child {
+    width: 85%;
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
   & > .container-child {
     width: 90%;
+    margin-bottom: 30px;
   }
 `;
 

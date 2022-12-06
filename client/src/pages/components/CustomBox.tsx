@@ -13,7 +13,7 @@ export const ParentContainer = styled.div`
 `;
 
 export const TitleLogo = styled.img`
-  width: calc(25vw);
+  width: 100px;
 `;
 export const TitleWrapper = styled.div`
   margin-top: 10%;

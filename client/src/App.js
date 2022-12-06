@@ -11,7 +11,7 @@ import { SignInPAD } from "pages/common/sign/signForm/signIn";
 import SignUp from "pages/common/sign/signForm/signUp";
 import SignUpSucc from "pages/common/sign/signForm/signUp/SignUpSucc";
 
-import MyPage from "./pages/user/myPage";
+import MyPage from "./pages/designer/myPage";
 import UserSearch from "pages/user/userSearch";
 import UserTrend from "pages/user/userTrend";
 import UserHome from "pages/user/userHome";
@@ -43,7 +43,7 @@ function App() {
           <Route path="/designer/home" element={<DesignerHome />} />
           <Route path="/designer/trend" element={<DesignerTrend />} />
           <Route path="/designer/community" element={<></>} />
-          <Route path="/designer/myPage" element={<></>} />
+          <Route path="/designer/myPage" element={<MyPage />} />
           <Route path="/designer/chat" element={<DesignerHome />} />
         </Routes>
         <Mobile>

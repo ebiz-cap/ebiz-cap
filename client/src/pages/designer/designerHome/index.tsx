@@ -18,6 +18,7 @@ import {
   MainContentsContainer,
   MyStatusContainer,
 } from "../Components";
+import TopFuncBar from "../Components/TopFuncBar";
 
 const reqUserInfo = () => {};
 const DesignerHome = () => {
@@ -27,7 +28,7 @@ const DesignerHome = () => {
   return (
     <ParentContainer style={{ backgroundColor: "#F3F3F3", height: "100vh" }}>
       <ProfileContainer>
-        <div id="top-pad" style={{ height: "40px" }} />
+        <TopFuncBar />
         <MyInfoContainer>
           <img className="img-profile" src={designerImg} alt="img-profile" />
           <div className="info-text">

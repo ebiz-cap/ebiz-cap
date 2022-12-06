@@ -98,7 +98,7 @@ const UserHome = (): JSX.Element => {
             style={{
               fontWeight: "bold",
               color: "#1f87ff",
-              fontSize: "calc(2.1 * 1.5vw)",
+              fontSize: "px",
             }}
           >
             심심하면?
@@ -205,7 +205,7 @@ const IconBox = styled.div`
   align-items: center;
 `;
 const IconImg = styled.img`
-  width: 65%;
+  width: 35px;
 `;
 const IconImgCommu = styled.img`
   width: 49%;
@@ -213,7 +213,7 @@ const IconImgCommu = styled.img`
 
 const IconImgCore = styled.img`
   transform: rotate(90deg);
-  width: 65%;
+  width: 40px;
   animation: vibrate 4s infinite;
 
   animation-fill-mode: forwards;
@@ -255,6 +255,6 @@ const PromotionWrapper = styled.div``;
 
 const CustomImg = styled.img`
   width: 100%;
-  height: 8 0%;
+  height: 80%;
 `;
 export default UserHome;
